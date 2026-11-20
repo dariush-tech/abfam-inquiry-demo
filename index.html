@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="دموی پیشنهادی DARIUSH Digital Studio: ثبت و پیگیری استعلام تجهیزات صنعتی با پنل فروش. همهٔ داده‌ها ساختگی است.">
+<meta name="theme-color" content="#0b6a6c">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ثبت و پیگیری استعلام تجهیزات صنعتی">
+<meta property="og:description" content="دموی پیشنهادی DARIUSH Digital Studio: ثبت و پیگیری استعلام تجهیزات صنعتی با پنل فروش. همهٔ داده‌ها ساختگی است.">
+<meta property="og:url" content="https://dariush-tech.github.io/abfam-inquiry-demo/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b6a6c'/%3E%3Crect x='9' y='7' width='14' height='18' rx='2' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M12 13h8M12 17h8M12 21h5' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>استعلام تجهیزات آب فام</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working tool from the first pixel. Thin demo strip, compact header with two views, a three-step demo path,
+   then either the inquiry form (with tracking on the side) or the sales list beside a single detail sheet. */
+:root {
+  --bg: #f3f6f6;
+  --surface: #ffffff;
+  --surface-2: #eaf0f0;
+  --field: #fbfdfd;
+  --ink: #142221;
+  --muted: #5a6b6a;
+  --line: #dbe3e2;
+  --line-strong: #c3cfce;
+  --accent: #0b6a6c;
+  --accent-ink: #ffffff;
+  --accent-soft: #dcefee;
+  --accent-strong: #08494b;
+  --danger: #b4232a;
+  --st-new: #1d57b8;   --st-new-soft: #e3ecfb;
+  --st-review: #9a5b00; --st-review-soft: #fbefd9;
+  --st-sent: #1b7243;  --st-sent-soft: #def2e6;
+  --shadow: 0 1px 2px rgba(20, 34, 33, 0.06), 0 4px 16px rgba(20, 34, 33, 0.05);
+  --scrim: rgba(10, 20, 20, 0.45);
+  --strip-bg: #08494b;
+  --strip-fg: #ffffff;
+  --font: "Vazirmatn", "Tahoma", "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1515; --surface: #142020; --surface-2: #1a2928; --field: #111b1b; --ink: #e4eeed; --muted: #92a5a3;
+    --line: #243332; --line-strong: #31453f; --accent: #3db5b0; --accent-ink: #052121; --accent-soft: #123131; --accent-strong: #8fd9d5;
+    --danger: #f08080;
+    --st-new: #8db4ff; --st-new-soft: #17284a; --st-review: #f2b85a; --st-review-soft: #3a2a10; --st-sent: #6fd39b; --st-sent-soft: #12321f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25); --scrim: rgba(0, 0, 0, 0.6); --strip-bg: #123131; --strip-fg: #a6e3df;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1515; --surface: #142020; --surface-2: #1a2928; --field: #111b1b; --ink: #e4eeed; --muted: #92a5a3;
+  --line: #243332; --line-strong: #31453f; --accent: #3db5b0; --accent-ink: #052121; --accent-soft: #123131; --accent-strong: #8fd9d5;
+  --danger: #f08080;
+  --st-new: #8db4ff; --st-new-soft: #17284a; --st-review: #f2b85a; --st-review-soft: #3a2a10; --st-sent: #6fd39b; --st-sent-soft: #12321f;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25); --scrim: rgba(0, 0, 0, 0.6); --strip-bg: #123131; --strip-fg: #a6e3df;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.75; direction: rtl; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; line-height: 1.4; text-wrap: balance; }
+p { margin: 0; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.muted { color: var(--muted); }
+.code { font-family: var(--mono); font-size: 0.92em; direction: ltr; unicode-bidi: isolate; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* demo strip + header */
+.strip { background: var(--strip-bg); color: var(--strip-fg); }
+.strip .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px; padding-block: 7px; font-size: 13px; }
+.strip b { font-weight: 700; letter-spacing: 0.01em; }
+.strip span { opacity: 0.85; }
+.head .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding-block: 16px 10px; }
+.title { display: grid; gap: 2px; min-width: 0; }
+.title h1 { font-size: 1.28rem; font-weight: 700; }
+.title p { font-size: 13.5px; color: var(--muted); }
+.head-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.tabs { display: inline-flex; background: var(--surface-2); border-radius: 12px; padding: 4px; gap: 2px; }
+.tab { border: 0; background: none; padding: 8px 16px; border-radius: 9px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; gap: 8px; }
+.tab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.count { min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--st-new-soft); color: var(--st-new); font-size: 12px; display: inline-grid; place-items: center; font-weight: 700; }
+.reset { display: inline-flex; align-items: center; gap: 6px; }
+.reset-confirm { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+
+/* buttons */
+.btn { border: 1px solid transparent; border-radius: 10px; padding: 10px 16px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 8px; line-height: 1.3; text-decoration: none; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { filter: brightness(1.06); }
+.btn-ghost { background: var(--surface); border-color: var(--line-strong); color: var(--ink); }
+.btn-ghost:hover { background: var(--surface-2); }
+.btn-sm { padding: 6px 12px; font-size: 13.5px; border-radius: 9px; }
+.btn-danger { background: var(--danger); color: var(--surface); }
+.btn svg { width: 16px; height: 16px; flex: none; }
+
+/* demo path */
+.path { padding-block: 4px 14px; }
+.path ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.step { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); padding: 5px 12px 5px 10px; border: 1px dashed var(--line-strong); border-radius: 999px; background: var(--surface); }
+.step i { font-style: normal; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); font-size: 12px; font-weight: 700; }
+.step.done { color: var(--accent-strong); border-style: solid; border-color: var(--accent); background: var(--accent-soft); }
+.step.done i { background: var(--accent); color: var(--accent-ink); }
+.step .sh { display: none; }
+
+main { padding-bottom: 48px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; box-shadow: var(--shadow); min-width: 0; }
+.card-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px; }
+.card-head h2 { font-size: 1.05rem; }
+
+/* register view */
+.reg { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
+.full { grid-column: 1 / -1; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field > span, .field-label { font-size: 13px; font-weight: 500; color: var(--muted); }
+.req::after { content: " *"; color: var(--danger); }
+input[type="text"], input[type="search"], select, textarea { width: 100%; font-size: 16px; padding: 10px 12px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--field); line-height: 1.5; }
+textarea { min-height: 84px; resize: vertical; }
+input.ltr { direction: ltr; text-align: left; font-family: var(--mono); font-size: 15px; }
+.qty { display: flex; align-items: stretch; }
+.qty input { border-start-end-radius: 0; border-end-end-radius: 0; }
+.qty b { display: grid; place-items: center; padding: 0 12px; border: 1px solid var(--line-strong); border-inline-start: 0; border-start-end-radius: 10px; border-end-end-radius: 10px; background: var(--surface-2); font-weight: 400; font-size: 14px; color: var(--muted); }
+[aria-invalid="true"] { border-color: var(--danger) !important; }
+.err { color: var(--danger); font-size: 12.5px; min-height: 0; }
+.att-opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.att-opt { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px dashed var(--line-strong); border-radius: 12px; background: var(--field); text-align: start; }
+.att-opt[aria-pressed="true"] { border-style: solid; border-color: var(--accent); background: var(--accent-soft); }
+.att-opt b { display: block; font-weight: 500; font-size: 14px; }
+.att-opt small { color: var(--muted); font-size: 12px; }
+.thumb { width: 46px; height: 58px; flex: none; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: var(--surface-2); display: grid; place-items: center; }
+.thumb.wide { width: 70px; height: 46px; }
+.thumb svg { width: 100%; height: 100%; display: block; }
+.att-note { font-size: 12.5px; color: var(--muted); }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.success { display: grid; justify-items: center; gap: 12px; text-align: center; padding: 20px 8px 8px; }
+.success .ok { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--st-sent-soft); color: var(--st-sent); }
+.trk { font-family: var(--mono); font-size: 1.9rem; font-weight: 500; letter-spacing: 0.04em; direction: ltr; padding: 6px 16px; border-radius: 10px; background: var(--surface-2); user-select: all; }
+.success .row-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 4px; }
+.aside { display: grid; gap: 20px; }
+.track-form { display: flex; gap: 8px; }
+.track-form input { flex: 1; min-width: 0; }
+.samples { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12.5px; margin-top: 10px; align-items: center; }
+.linkish { background: none; border: 0; padding: 0; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; font-family: var(--mono); font-size: 12.5px; }
+.track-result { margin-top: 14px; display: grid; gap: 10px; }
+.progress { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.progress li { font-size: 11.5px; color: var(--muted); display: grid; gap: 6px; text-align: center; }
+.progress li::before { content: ""; height: 4px; border-radius: 4px; background: var(--line); }
+.progress li.on { color: var(--ink); }
+.progress li.on::before { background: var(--accent); }
+.about ul { margin: 8px 0 0; padding-inline-start: 18px; display: grid; gap: 4px; font-size: 13.5px; color: var(--muted); }
+
+/* status pills */
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; padding: 2px 10px; border-radius: 999px; white-space: nowrap; }
+.pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.st-new { background: var(--st-new-soft); color: var(--st-new); }
+.st-review { background: var(--st-review-soft); color: var(--st-review); }
+.st-sent { background: var(--st-sent-soft); color: var(--st-sent); }
+
+/* sales view */
+.tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 14px; }
+.search { position: relative; flex: 1 1 300px; max-width: 460px; }
+.search input { padding-inline-start: 38px; }
+.search svg { position: absolute; inset-inline-start: 12px; top: 50%; transform: translateY(-50%); width: 17px; height: 17px; color: var(--muted); pointer-events: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line-strong); background: var(--surface); border-radius: 999px; padding: 6px 12px; font-size: 13px; display: inline-flex; gap: 6px; align-items: center; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip em { font-style: normal; opacity: 0.7; font-variant-numeric: tabular-nums; }
+.sales { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 16px; align-items: start; }
+.list { display: grid; gap: 8px; }
+.item { width: 100%; text-align: start; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; padding: 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); }
+.item:hover { border-color: var(--line-strong); }
+.item[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.item strong { font-weight: 500; display: block; overflow-wrap: anywhere; }
+.item .co { font-size: 13px; color: var(--muted); }
+.item .meta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; color: var(--muted); align-items: center; }
+.item .meta svg { width: 14px; height: 14px; vertical-align: -2px; }
+.empty { padding: 28px 16px; text-align: center; color: var(--muted); border: 1px dashed var(--line-strong); border-radius: 12px; }
+.detail { position: sticky; top: 12px; display: grid; gap: 18px; }
+.d-top { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.d-top .eyebrow { font-size: 12px; color: var(--muted); display: block; }
+.d-top .trk-sm { font-family: var(--mono); font-size: 1.1rem; direction: ltr; display: inline-block; }
+.d-title h2 { font-size: 1.12rem; overflow-wrap: anywhere; }
+.d-title p { font-size: 13px; color: var(--muted); }
+.back { display: none; }
+.spec { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 0; }
+.spec div { background: var(--surface); padding: 10px 12px; min-width: 0; }
+.spec dt { font-size: 12px; color: var(--muted); }
+.spec dd { margin: 0; font-weight: 500; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.block h3 { font-size: 13px; color: var(--muted); font-weight: 500; margin-bottom: 8px; }
+.notes { background: var(--surface-2); border-radius: 10px; padding: 10px 12px; font-size: 14px; }
+.att-card { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; }
+.att-card .nm { flex: 1; min-width: 0; }
+.att-card .nm b { display: block; font-family: var(--mono); font-weight: 400; font-size: 13px; direction: ltr; text-align: right; overflow-wrap: anywhere; }
+.att-card .nm small { color: var(--muted); font-size: 12px; }
+.st-switch { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.st-btn { border: 1px solid var(--line-strong); background: var(--surface); border-radius: 10px; padding: 9px 6px; font-size: 13.5px; font-weight: 500; }
+.st-btn[aria-pressed="true"].s-new { background: var(--st-new-soft); color: var(--st-new); border-color: var(--st-new); }
+.st-btn[aria-pressed="true"].s-review { background: var(--st-review-soft); color: var(--st-review); border-color: var(--st-review); }
+.st-btn[aria-pressed="true"].s-sent { background: var(--st-sent-soft); color: var(--st-sent); border-color: var(--st-sent); }
+.timeline { list-style: none; margin: 0; padding: 0 14px 0 0; border-inline-start: 2px solid var(--line); display: grid; gap: 10px; }
+.timeline li { position: relative; font-size: 13.5px; }
+.timeline li::before { content: ""; position: absolute; inset-inline-start: -21px; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent); }
+.timeline small { color: var(--muted); display: block; font-size: 12px; }
+.d-actions { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--line); }
+.placeholder { display: grid; place-items: center; text-align: center; min-height: 240px; color: var(--muted); }
+
+/* overlay */
+.overlay { position: fixed; inset: 0; z-index: 30; background: var(--scrim); display: grid; place-items: center;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.modal { width: min(560px, 100%); max-height: 100%; overflow: auto; background: var(--surface); border-radius: 16px; padding: 20px; display: grid; gap: 14px; box-shadow: var(--shadow); }
+.modal-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.modal-head h2 { font-size: 1.02rem; }
+.x { border: 0; background: var(--surface-2); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 18px; line-height: 1; }
+.preview-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--st-review); background: var(--st-review-soft); padding: 3px 10px; border-radius: 999px; justify-self: start; }
+.doc { background: var(--surface-2); border-radius: 12px; padding: 14px; display: grid; place-items: center; }
+.doc svg { width: 100%; max-width: 360px; height: auto; display: block; border-radius: 6px; box-shadow: var(--shadow); }
+.sms { display: grid; gap: 10px; }
+.bubble { background: var(--surface-2); border-radius: 16px 16px 16px 4px; padding: 12px 14px; font-size: 14px; max-width: 92%; }
+.channel { font-size: 12.5px; color: var(--muted); }
+.toast { position: fixed; z-index: 40; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--bg); padding: 9px 16px; border-radius: 10px; font-size: 14px; box-shadow: var(--shadow); max-width: calc(100% - 32px); }
+.foot { font-size: 12.5px; color: var(--muted); padding-block: 0 24px; }
+
+@media (max-width: 900px) {
+  .reg { grid-template-columns: minmax(0, 1fr); }
+  .sales { grid-template-columns: minmax(0, 1fr); }
+  .sales.has-sel .list-col { display: none; }
+  .sales:not(.has-sel) .detail-col { display: none; }
+  .detail { position: static; }
+  .back { display: inline-flex; }
+}
+@media (max-width: 560px) {
+  .form-grid, .att-opts { grid-template-columns: minmax(0, 1fr); }
+  .title h1 { font-size: 1.12rem; }
+  .head-actions { width: 100%; justify-content: space-between; }
+  .card { padding: 16px; }
+  .spec { grid-template-columns: minmax(0, 1fr); }
+  .trk { font-size: 1.45rem; }
+  .st-btn { font-size: 12.5px; }
+  .step .lg { display: none; }
+  .step .sh { display: inline; }
+  .step { font-size: 12.5px; padding: 4px 10px 4px 8px; }
+  .path ol { gap: 6px; }
+  .head .wrap { padding-block: 12px 8px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="strip">
+  <div class="wrap">
+    <b>دموی پیشنهادی DARIUSH Digital Studio</b>
+    <span>نسخهٔ نمایشی · همهٔ داده‌ها ساختگی است و فقط در همین مرورگر ذخیره می‌شود</span>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <div class="title">
+      <h1>ثبت و پیگیری استعلام تجهیزات صنعتی</h1>
+      <p>طرح پیشنهادی برای آب فام تجارت جهان</p>
+    </div>
+    <div class="head-actions">
+      <div class="tabs" role="tablist" aria-label="نماهای دمو">
+        <button class="tab" role="tab" id="tab-register" aria-controls="view-register" aria-selected="true" type="button">ثبت استعلام</button>
+        <button class="tab" role="tab" id="tab-sales" aria-controls="view-sales" aria-selected="false" type="button">پنل فروش <span class="count" id="new-count">۰</span></button>
+      </div>
+      <div id="reset-area">
+        <button class="btn btn-ghost btn-sm reset" id="reset" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+          بازنشانی دمو
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="path" aria-label="مسیر دمو">
+  <div class="wrap">
+    <ol id="steps">
+      <li class="step" data-step="fill"><i>۱</i><span class="lg">فرم را با داده نمونه پر کنید</span><span class="sh">پر کردن فرم</span></li>
+      <li class="step" data-step="submit"><i>۲</i><span class="lg">ثبت کنید و کد پیگیری بگیرید</span><span class="sh">ثبت و کد پیگیری</span></li>
+      <li class="step" data-step="review"><i>۳</i><span class="lg">در پنل فروش مشخصات، پیوست و وضعیت را یکجا ببینید و وضعیت را تغییر دهید</span><span class="sh">بررسی در پنل فروش</span></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <!-- inquiry view -->
+    <section id="view-register" role="tabpanel" aria-labelledby="tab-register">
+      <div class="reg">
+        <div class="card" id="form-card">
+          <form id="inq" novalidate>
+            <div class="card-head">
+              <h2>فرم استعلام قطعه</h2>
+              <button class="btn btn-ghost btn-sm" id="fill" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+                پر کردن فرم با داده نمونه
+              </button>
+            </div>
+            <div class="form-grid">
+              <label class="field full" for="f-company"><span class="req">نام شرکت</span>
+                <input type="text" id="f-company" name="company" autocomplete="organization" placeholder="مثلاً: فولاد آرتاک">
+                <small class="err" id="e-company"></small>
+              </label>
+              <label class="field" for="f-part"><span class="req">نام قطعه</span>
+                <input type="text" id="f-part" name="part" placeholder="مثلاً: ترانسمیتر فشار ۰ تا ۱۶ بار">
+                <small class="err" id="e-part"></small>
+              </label>
+              <label class="field" for="f-code"><span class="req">کد فنی</span>
+                <input type="text" class="ltr" id="f-code" name="code" dir="ltr" autocomplete="off" spellcheck="false" placeholder="PT-416-G12">
+                <small class="err" id="e-code"></small>
+              </label>
+              <label class="field" for="f-qty"><span class="req">تعداد</span>
+                <span class="qty"><input type="text" id="f-qty" name="qty" inputmode="numeric" autocomplete="off" placeholder="۱۰"><b>عدد</b></span>
+                <small class="err" id="e-qty"></small>
+              </label>
+              <label class="field" for="f-days"><span class="req">زمان تحویل موردنیاز</span>
+                <select id="f-days" name="days">
+                  <option value="">انتخاب کنید</option>
+                  <option value="7">فوری، تا ۷ روز</option>
+                  <option value="14">تا ۱۴ روز</option>
+                  <option value="30">تا ۳۰ روز</option>
+                  <option value="60">تا ۶۰ روز</option>
+                </select>
+                <small class="err" id="e-days"></small>
+              </label>
+              <label class="field full" for="f-notes"><span>توضیحات</span>
+                <textarea id="f-notes" name="notes" placeholder="محل مصرف، برند قابل‌قبول، گواهی‌ها یا هر نکتهٔ فنی دیگر"></textarea>
+              </label>
+              <div class="field full">
+                <span class="field-label" id="att-label">دیتاشیت یا تصویر پلاک قطعه</span>
+                <div class="att-opts" role="group" aria-labelledby="att-label">
+                  <button class="att-opt" type="button" id="att-datasheet" data-kind="datasheet" aria-pressed="false">
+                    <span class="thumb" data-thumb="datasheet"></span>
+                    <span><b>دیتاشیت نمونه</b><small>PDF · ۲۴۸ کیلوبایت</small></span>
+                  </button>
+                  <button class="att-opt" type="button" id="att-nameplate" data-kind="nameplate" aria-pressed="false">
+                    <span class="thumb wide" data-thumb="nameplate"></span>
+                    <span><b>عکس پلاک نمونه</b><small>JPG · ۱٫۲ مگابایت</small></span>
+                  </button>
+                </div>
+                <small class="att-note">در این دمو یک فایل نمونه انتخاب می‌شود. در نسخهٔ واقعی، مشتری فایل یا عکس خودش را بارگذاری می‌کند.</small>
+              </div>
+            </div>
+            <div class="form-foot">
+              <span class="muted" style="font-size:13px">فیلدهای ستاره‌دار الزامی است.</span>
+              <button class="btn btn-primary" type="submit" id="submit">ثبت استعلام</button>
+            </div>
+          </form>
+          <div class="success" id="success" hidden>
+            <span class="ok"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+            <h2>استعلام ثبت شد</h2>
+            <p class="muted">کد پیگیری نمایشی شما:</p>
+            <span class="trk" id="new-code">AF-1405-0137</span>
+            <p class="muted" style="font-size:13.5px">این درخواست همین حالا با وضعیت «جدید» به پنل فروش اضافه شد.</p>
+            <div class="row-btns">
+              <button class="btn btn-primary" type="button" id="go-sales">مشاهده در پنل فروش</button>
+              <button class="btn btn-ghost" type="button" id="copy-code">کپی کد</button>
+              <button class="btn btn-ghost" type="button" id="new-inq">ثبت استعلام دیگر</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="aside">
+          <div class="card">
+            <div class="card-head" style="margin-bottom:10px"><h2>پیگیری استعلام</h2></div>
+            <form class="track-form" id="track" novalidate>
+              <label class="sr" for="t-code">کد پیگیری</label>
+              <input type="text" class="ltr" id="t-code" dir="ltr" autocomplete="off" spellcheck="false" placeholder="AF-1405-0134">
+              <button class="btn btn-ghost" type="submit">پیگیری</button>
+            </form>
+            <div class="samples" id="t-samples"><span class="muted">کدهای نمونه:</span></div>
+            <div class="track-result" id="t-result" aria-live="polite"></div>
+          </div>
+          <div class="card about">
+            <h2 style="font-size:1rem">در این دمو چه می‌بینید</h2>
+            <ul>
+              <li>مشتری قطعه را با کد فنی، تعداد، زمان تحویل و پیوست ثبت می‌کند.</li>
+              <li>کارشناس فروش همهٔ مشخصات، فایل پیوست و وضعیت را در یک صفحه می‌بیند.</li>
+              <li>ارسال پیامک یا ایمیل به مشتری فقط به‌صورت پیش‌نمایش نشان داده می‌شود.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- sales view -->
+    <section id="view-sales" role="tabpanel" aria-labelledby="tab-sales" hidden>
+      <div class="tools">
+        <label class="search" for="q">
+          <span class="sr">جست‌وجو</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input type="search" id="q" placeholder="جست‌وجو با کد قطعه یا نام شرکت" autocomplete="off">
+        </label>
+        <div class="chips" id="chips" role="group" aria-label="فیلتر وضعیت"></div>
+      </div>
+      <div class="sales" id="sales">
+        <div class="list-col"><div class="list" id="list"></div></div>
+        <div class="detail-col"><div class="card detail" id="detail"></div></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">در نسخهٔ واقعی این سامانه به پیامک، ایمیل و نرم‌افزار فروش وصل می‌شود؛ در این دمو هیچ پیام، پرداخت یا اتصال واقعی انجام نمی‌شود.</div>
+</footer>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="modal-head"><h2 id="m-title"></h2><button class="x" type="button" id="m-close" aria-label="بستن">×</button></div>
+    <div id="m-body"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(() => {
+  const KEY = "abfam-inquiry-demo-v1";
+  const ST = { new: "جدید", review: "در حال بررسی", sent: "پیشنهاد ارسال شد" };
+  const DAYS = { 7: "فوری، تا ۷ روز", 14: "تا ۱۴ روز", 30: "تا ۳۰ روز", 60: "تا ۶۰ روز" };
+  const HOUR = 3600e3, DAY = 24 * HOUR;
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const fa = (n) => Number(n).toLocaleString("fa-IR");
+  let dFmt, tFmt;
+  try {
+    dFmt = new Intl.DateTimeFormat("fa-IR-u-ca-persian", { year: "numeric", month: "long", day: "numeric" });
+    tFmt = new Intl.DateTimeFormat("fa-IR-u-ca-persian", { month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" });
+  } catch (e) { dFmt = tFmt = new Intl.DateTimeFormat("fa-IR"); }
+  const date = (t) => dFmt.format(new Date(t));
+  const when = (t) => tFmt.format(new Date(t));
+  function pYear() {
+    try { const p = new Intl.DateTimeFormat("en-u-ca-persian", { year: "numeric" }).formatToParts(new Date()); return ((p.find((x) => x.type === "year") || {}).value || "1405").replace(/\D/g, "") || "1405"; }
+    catch (e) { return "1405"; }
+  }
+  const toLatin = (s) => String(s).replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
+  const norm = (s) => toLatin(String(s || "")).toLowerCase().replace(/ي/g, "ی").replace(/ك/g, "ک").replace(/[‌\s\-_/.]/g, "");
+  const slug = (s) => (toLatin(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "part");
+
+  function makeAtt(kind, code) {
+    return kind === "datasheet"
+      ? { kind, name: `${slug(code)}-datasheet.pdf`, size: "۲۴۸ کیلوبایت", type: "PDF" }
+      : { kind, name: `nameplate-${slug(code)}.jpg`, size: "۱٫۲ مگابایت", type: "JPG" };
+  }
+
+  function seed() {
+    const now = Date.now(), y = pYear();
+    const mk = (n, o) => ({ id: `AF-${y}-${String(n).padStart(4, "0")}`, ...o, att: makeAtt(o.att, o.code) });
+    return {
+      seq: 137,
+      items: [
+        mk(136, { company: "پتروشیمی نیلوفام", part: "ترانسمیتر فشار ۰ تا ۱۶ بار، خروجی ۴ تا ۲۰ میلی‌آمپر", code: "PT-416-G12-HART", qty: 6, days: 7,
+          notes: "جایگزین ترانسمیتر معیوب واحد یوتیلیتی. گواهی کالیبراسیون همراه کالا لازم است.", att: "nameplate", status: "new",
+          created: now - 5 * HOUR, history: [{ s: "new", at: now - 5 * HOUR }] }),
+        mk(134, { company: "فولاد آرتاک", part: "بلبرینگ شیار عمیق دوطرف لاستیکی", code: "6312-2RS-C3", qty: 40, days: 14,
+          notes: "برای پمپ‌های خط نورد. ترجیحاً با گریس دمای بالا.", att: "datasheet", status: "review",
+          created: now - 2 * DAY - 3 * HOUR, history: [{ s: "new", at: now - 2 * DAY - 3 * HOUR }, { s: "review", at: now - DAY - 20 * HOUR }] }),
+        mk(131, { company: "سیمان کوهسار", part: "الکتروموتور سه‌فاز ۱۵ کیلووات، ۱۴۶۰ دور", code: "IM-160L-4-B3", qty: 2, days: 30,
+          notes: "برای فن غبارگیر کوره. کلاس حفاظت IP55 و نصب پایه‌دار.", att: "nameplate", status: "sent",
+          created: now - 6 * DAY, history: [{ s: "new", at: now - 6 * DAY }, { s: "review", at: now - 5 * DAY - 2 * HOUR }, { s: "sent", at: now - 3 * DAY - 4 * HOUR }] }),
+      ],
+    };
+  }
+  const SAMPLES = [
+    { company: "کاشی و سرامیک ماهور", part: "شیر برقی پنوماتیک ۵/۲ راه، بوبین ۲۴ ولت DC", code: "SV-5220-24DC", qty: 12, days: 14,
+      notes: "برای خط پرس. کاتالوگ فنی و زمان تحویل دقیق را اعلام کنید.", kind: "datasheet" },
+    { company: "نیروگاه آذرخش", part: "کنتاکتور سه‌فاز ۶۵ آمپر، بوبین ۲۳۰ ولت AC", code: "CT-65-3P-230AC", qty: 8, days: 7,
+      notes: "برای تابلوی MCC پمپ‌خانه. موجودی فوری اولویت دارد.", kind: "nameplate" },
+    { company: "صنایع غذایی گلپاد", part: "اینورتر ۱۵ کیلووات سه‌فاز ۴۰۰ ولت", code: "VFD-15K-4T-EMC", qty: 3, days: 30,
+      notes: "برای کانوایر خط بسته‌بندی. فیلتر EMC داخلی لازم است.", kind: "datasheet" },
+  ];
+
+  let state;
+  function load() {
+    try { const raw = localStorage.getItem(KEY); if (raw) { const s = JSON.parse(raw); if (s && Array.isArray(s.items)) return s; } } catch (e) {}
+    return seed();
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  state = load();
+
+  const ui = { view: "register", filter: "all", q: "", sel: null, att: null, sample: 0, lastId: null, steps: { fill: false, submit: false, review: false }, resetAsk: false };
+
+  /* ---------- sample file artwork (stands in for the uploaded file) ---------- */
+  function rating(code) {
+    const c = String(code || "").toUpperCase();
+    if (c.startsWith("IM")) return ["15 kW   400 V Δ   50 Hz", "1460 min⁻¹   cos φ 0.86", "IP55   Ins. Cl. F"];
+    if (c.startsWith("PT")) return ["RANGE 0 … 16 bar", "OUT 4 … 20 mA / HART", "SUPPLY 24 V DC   IP67"];
+    if (c.startsWith("CT")) return ["Ie 65 A  AC-3", "COIL 230 V AC 50 Hz", "Ui 690 V"];
+    if (c.startsWith("SV")) return ["5/2 WAY   G 1/4", "COIL 24 V DC  4.8 W", "P 2 … 10 bar"];
+    if (c.startsWith("VFD")) return ["15 kW   3~ 400 V", "I OUT 32 A   0–400 Hz", "EMC FILTER C3"];
+    return ["RATED DATA", "SEE DATASHEET", "SAMPLE FILE"];
+  }
+  function nameplateSVG(code) {
+    const r = rating(code);
+    const t = esc(String(code || "SAMPLE").slice(0, 22));
+    return `<svg viewBox="0 0 240 150" dir="ltr" role="img" aria-label="تصویر نمونهٔ پلاک قطعه" style="direction:ltr">
+      <defs><linearGradient id="mt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9dfe2"/><stop offset=".5" stop-color="#b9c2c7"/><stop offset="1" stop-color="#cfd6da"/></linearGradient></defs>
+      <rect x="0" y="0" width="240" height="150" fill="#3a4448"/>
+      <rect x="10" y="10" width="220" height="130" rx="6" fill="url(#mt)" stroke="#8b979d"/>
+      <g fill="#7d898f"><circle cx="20" cy="20" r="3"/><circle cx="220" cy="20" r="3"/><circle cx="20" cy="130" r="3"/><circle cx="220" cy="130" r="3"/></g>
+      <g font-family="monospace" fill="#1f2a2e">
+        <text x="30" y="34" font-size="9" font-weight="700" letter-spacing="1">SAMPLE NAMEPLATE · DEMO</text>
+        <line x1="30" y1="40" x2="210" y2="40" stroke="#6f7c82" stroke-width=".8"/>
+        <text x="30" y="56" font-size="8.5">TYPE</text><text x="72" y="56" font-size="9" font-weight="700">${t}</text>
+        <text x="30" y="71" font-size="8.5">S/N</text><text x="72" y="71" font-size="9">DM-26-0418</text>
+        <text x="30" y="88" font-size="8.5">${esc(r[0])}</text>
+        <text x="30" y="102" font-size="8.5">${esc(r[1])}</text>
+        <text x="30" y="116" font-size="8.5">${esc(r[2])}</text>
+        <text x="30" y="131" font-size="7" fill="#4b585e">YEAR 2026 · FICTIONAL DATA</text>
+      </g></svg>`;
+  }
+  function datasheetSVG(code, part) {
+    const t = esc(String(code || "SAMPLE").slice(0, 20));
+    const r = rating(code);
+    return `<svg viewBox="0 0 170 220" dir="ltr" role="img" aria-label="پیش‌نمایش دیتاشیت نمونه" style="direction:ltr">
+      <rect width="170" height="220" fill="#ffffff"/>
+      <rect width="170" height="30" fill="#0b6a6c"/>
+      <text x="12" y="19" font-family="monospace" font-size="10" font-weight="700" fill="#ffffff" letter-spacing="1">DATASHEET</text>
+      <text x="158" y="19" font-family="monospace" font-size="7" fill="#cfeeee" text-anchor="end">SAMPLE · DEMO</text>
+      <text x="12" y="48" font-family="monospace" font-size="9.5" font-weight="700" fill="#142221">${t}</text>
+      <g fill="#c9d3d2"><rect x="12" y="56" width="120" height="4" rx="2"/><rect x="12" y="64" width="96" height="4" rx="2"/></g>
+      <g font-family="monospace" font-size="6.5" fill="#142221">
+        <rect x="12" y="78" width="146" height="58" fill="#f1f5f5" stroke="#d6dfde"/>
+        <text x="18" y="91">${esc(r[0])}</text><text x="18" y="105">${esc(r[1])}</text><text x="18" y="119">${esc(r[2])}</text>
+        <text x="18" y="131" fill="#5a6b6a">Values are fictional</text>
+      </g>
+      <polyline points="14,196 34,184 54,188 74,170 94,174 114,158 134,162 156,150" fill="none" stroke="#0b6a6c" stroke-width="1.6"/>
+      <g stroke="#e1e8e7"><line x1="12" y1="150" x2="158" y2="150"/><line x1="12" y1="173" x2="158" y2="173"/><line x1="12" y1="200" x2="158" y2="200"/></g>
+      <text x="85" y="213" font-family="monospace" font-size="6" fill="#8a9a99" text-anchor="middle">page 1 / 4</text>
+    </svg>`;
+  }
+  const attSVG = (att, code, part) => (att.kind === "datasheet" ? datasheetSVG(code, part) : nameplateSVG(code));
+
+  /* ---------- views ---------- */
+  const tabs = { register: $("#tab-register"), sales: $("#tab-sales") };
+  const views = { register: $("#view-register"), sales: $("#view-sales") };
+  function show(view) {
+    ui.view = view === "sales" ? "sales" : "register";
+    for (const k of ["register", "sales"]) {
+      tabs[k].setAttribute("aria-selected", String(k === ui.view));
+      views[k].hidden = k !== ui.view;
+    }
+    if (ui.view === "sales") renderSales();
+    try { scrollTo({ top: 0 }); } catch (e) {}
+  }
+  function route() { show(location.hash === "#sales" ? "sales" : "register"); }
+  tabs.register.addEventListener("click", () => { location.hash = "register"; });
+  tabs.sales.addEventListener("click", () => { location.hash = "sales"; });
+  addEventListener("hashchange", route);
+
+  function renderSteps() {
+    document.querySelectorAll("#steps .step").forEach((li) => li.classList.toggle("done", !!ui.steps[li.dataset.step]));
+  }
+  function renderCount() {
+    $("#new-count").textContent = fa(state.items.filter((i) => i.status === "new").length);
+  }
+
+  /* ---------- form ---------- */
+  const F = { company: $("#f-company"), part: $("#f-part"), code: $("#f-code"), qty: $("#f-qty"), days: $("#f-days"), notes: $("#f-notes") };
+  const attBtns = [$("#att-datasheet"), $("#att-nameplate")];
+  function renderThumbs() {
+    const code = F.code.value.trim() || "SAMPLE";
+    document.querySelector('[data-thumb="datasheet"]').innerHTML = datasheetSVG(code, F.part.value);
+    document.querySelector('[data-thumb="nameplate"]').innerHTML = nameplateSVG(code);
+  }
+  function setAtt(kind) {
+    ui.att = ui.att === kind ? null : kind;
+    attBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.kind === ui.att)));
+  }
+  attBtns.forEach((b) => b.addEventListener("click", () => setAtt(b.dataset.kind)));
+  F.code.addEventListener("input", renderThumbs);
+
+  function clearErrors() {
+    for (const k of ["company", "part", "code", "qty", "days"]) { $("#e-" + k).textContent = ""; F[k].removeAttribute("aria-invalid"); }
+  }
+  function validate() {
+    clearErrors();
+    const v = {
+      company: F.company.value.trim(), part: F.part.value.trim(), code: F.code.value.trim(),
+      qty: parseInt(toLatin(F.qty.value).replace(/[^\d]/g, ""), 10), days: parseInt(F.days.value, 10), notes: F.notes.value.trim(),
+    };
+    const errs = {};
+    if (!v.company) errs.company = "نام شرکت را بنویسید.";
+    if (!v.part) errs.part = "نام قطعه را بنویسید.";
+    if (!v.code) errs.code = "کد فنی قطعه را بنویسید.";
+    if (!v.qty || v.qty < 1) errs.qty = "تعداد را با عدد بنویسید.";
+    else if (v.qty > 100000) errs.qty = "تعداد باید کمتر از ۱۰۰٬۰۰۰ باشد.";
+    if (!v.days) errs.days = "زمان تحویل را انتخاب کنید.";
+    for (const [k, m] of Object.entries(errs)) { $("#e-" + k).textContent = m; F[k].setAttribute("aria-invalid", "true"); }
+    const first = Object.keys(errs)[0];
+    if (first) F[first].focus();
+    return first ? null : v;
+  }
+
+  $("#fill").addEventListener("click", () => {
+    const s = SAMPLES[ui.sample % SAMPLES.length];
+    ui.sample++;
+    F.company.value = s.company; F.part.value = s.part; F.code.value = s.code; F.qty.value = fa(s.qty).replace(/٬/g, ""); F.days.value = String(s.days); F.notes.value = s.notes;
+    clearErrors(); renderThumbs();
+    ui.att = null; setAtt(s.kind);
+    ui.steps.fill = true; renderSteps();
+    toast("فرم با دادهٔ نمونه پر شد. حالا «ثبت استعلام» را بزنید.");
+  });
+
+  $("#inq").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const v = validate();
+    if (!v) return;
+    const now = Date.now();
+    const id = `AF-${pYear()}-${String(state.seq).padStart(4, "0")}`;
+    state.seq += 1;
+    const item = { id, company: v.company, part: v.part, code: v.code, qty: v.qty, days: v.days, notes: v.notes,
+      att: ui.att ? makeAtt(ui.att, v.code) : null, status: "new", created: now, history: [{ s: "new", at: now }] };
+    state.items.unshift(item);
+    save();
+    ui.lastId = id; ui.sel = id; ui.filter = "all"; ui.q = ""; $("#q").value = "";
+    ui.steps.fill = true; ui.steps.submit = true; renderSteps(); renderCount();
+    $("#new-code").textContent = id;
+    $("#inq").hidden = true; $("#success").hidden = false;
+    $("#go-sales").focus({ preventScroll: true });
+    $("#form-card").scrollIntoView({ block: "start" });
+    renderSamples();
+  });
+  $("#go-sales").addEventListener("click", () => { ui.sel = ui.lastId; location.hash = "sales"; });
+  $("#new-inq").addEventListener("click", () => {
+    $("#inq").reset(); ui.att = null; setAtt(null); clearErrors(); renderThumbs();
+    $("#success").hidden = true; $("#inq").hidden = false; F.company.focus();
+  });
+  $("#copy-code").addEventListener("click", () => copyText($("#new-code").textContent, $("#new-code")));
+
+  function copyText(text, el) {
+    const ok = () => toast("کد پیگیری کپی شد.");
+    const sel = () => { try { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("کد انتخاب شد؛ آن را کپی کنید."); } catch (e) {} };
+    try { navigator.clipboard.writeText(text).then(ok, sel); } catch (e) { sel(); }
+  }
+
+  /* ---------- customer tracking ---------- */
+  function renderSamples() {
+    const box = $("#t-samples");
+    box.innerHTML = '<span class="muted">کدهای نمونه:</span>';
+    state.items.slice(0, 3).forEach((i) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "linkish"; b.textContent = i.id;
+      b.addEventListener("click", () => { $("#t-code").value = i.id; track(i.id); });
+      box.appendChild(b);
+    });
+  }
+  function track(code) {
+    const out = $("#t-result");
+    const c = norm(code);
+    if (!c) { out.innerHTML = '<p class="err">کد پیگیری را وارد کنید.</p>'; return; }
+    const it = state.items.find((i) => norm(i.id) === c);
+    if (!it) { out.innerHTML = '<p class="err">استعلامی با این کد پیدا نشد. کد را مثل AF-1405-0134 وارد کنید.</p>'; return; }
+    const order = ["new", "review", "sent"], idx = order.indexOf(it.status);
+    const last = it.history[it.history.length - 1];
+    out.innerHTML = `
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap">
+        <span class="code">${esc(it.id)}</span><span class="pill st-${it.status}">${ST[it.status]}</span>
+      </div>
+      <div><strong style="font-weight:500">${esc(it.part)}</strong><div class="muted" style="font-size:13px">${esc(it.company)} · ${fa(it.qty)} عدد</div></div>
+      <ol class="progress">${order.map((s, k) => `<li class="${k <= idx ? "on" : ""}">${ST[s]}</li>`).join("")}</ol>
+      <p class="muted" style="font-size:12.5px">آخرین به‌روزرسانی: ${when(last.at)}</p>`;
+  }
+  $("#track").addEventListener("submit", (e) => { e.preventDefault(); track($("#t-code").value); });
+
+  /* ---------- sales panel ---------- */
+  function filtered() {
+    const q = norm(ui.q);
+    return state.items
+      .filter((i) => ui.filter === "all" || i.status === ui.filter)
+      .filter((i) => !q || norm(i.code).includes(q) || norm(i.company).includes(q) || norm(i.id).includes(q))
+      .sort((a, b) => b.created - a.created);
+  }
+  function renderChips() {
+    const counts = { all: state.items.length };
+    for (const k of Object.keys(ST)) counts[k] = state.items.filter((i) => i.status === k).length;
+    const opts = [["all", "همه"], ["new", ST.new], ["review", ST.review], ["sent", ST.sent]];
+    $("#chips").innerHTML = opts.map(([k, l]) =>
+      `<button class="chip" type="button" data-f="${k}" aria-pressed="${ui.filter === k}">${l}<em>${fa(counts[k])}</em></button>`).join("");
+  }
+  $("#chips").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-f]"); if (!b) return;
+    ui.filter = b.dataset.f; renderSales();
+  });
+  $("#q").addEventListener("input", (e) => { ui.q = e.target.value; renderList(); });
+
+  const clip = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7.1-7.1l8.6-8.6a3.4 3.4 0 0 1 4.8 4.8l-8.6 8.6a1.7 1.7 0 0 1-2.4-2.4l7.9-7.9"/></svg>';
+  function renderList() {
+    const items = filtered();
+    const list = $("#list");
+    if (!items.length) {
+      list.innerHTML = `<div class="empty">موردی با این جست‌وجو یا فیلتر پیدا نشد.<br><button class="linkish" type="button" id="clear-q" style="font-family:inherit">پاک کردن جست‌وجو و فیلتر</button></div>`;
+      $("#clear-q").addEventListener("click", () => { ui.q = ""; ui.filter = "all"; $("#q").value = ""; renderSales(); });
+      return;
+    }
+    list.innerHTML = items.map((i) => `
+      <button class="item" type="button" data-id="${esc(i.id)}" aria-current="${i.id === ui.sel}">
+        <span><strong>${esc(i.part)}</strong><span class="co">${esc(i.company)}</span></span>
+        <span class="pill st-${i.status}">${ST[i.status]}</span>
+        <span class="meta"><span class="code">${esc(i.code)}</span><span>${fa(i.qty)} عدد</span><span>${DAYS[i.days] || ""}</span>${i.att ? `<span>${clip} ${i.att.type}</span>` : ""}<span class="code">${esc(i.id)}</span></span>
+      </button>`).join("");
+  }
+  $("#list").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-id]"); if (!b) return;
+    ui.sel = b.dataset.id; renderList(); renderDetail();
+    if (matchMedia("(max-width: 900px)").matches) $("#detail").scrollIntoView({ block: "start" });
+  });
+
+  function renderDetail() {
+    const box = $("#detail");
+    const it = state.items.find((i) => i.id === ui.sel);
+    $("#sales").classList.toggle("has-sel", !!it);
+    if (!it) {
+      box.innerHTML = `<div class="placeholder"><div><strong style="font-weight:500">یک استعلام را از فهرست انتخاب کنید</strong><p style="font-size:13.5px">مشخصات فنی، پیوست و وضعیت هر درخواست اینجا یکجا نمایش داده می‌شود.</p></div></div>`;
+      return;
+    }
+    const due = it.created + it.days * DAY;
+    box.innerHTML = `
+      <div class="d-top">
+        <div><span class="eyebrow">کد پیگیری</span><span class="trk-sm">${esc(it.id)}</span></div>
+        <div style="display:flex;gap:8px;align-items:center"><span class="pill st-${it.status}">${ST[it.status]}</span>
+          <button class="btn btn-ghost btn-sm back" type="button" id="back">بازگشت به فهرست</button></div>
+      </div>
+      <div class="d-title"><h2>${esc(it.part)}</h2><p>${esc(it.company)} · ثبت در ${date(it.created)}</p></div>
+      <div class="block"><h3>مشخصات فنی</h3>
+        <dl class="spec">
+          <div><dt>کد فنی</dt><dd class="code">${esc(it.code)}</dd></div>
+          <div><dt>تعداد</dt><dd>${fa(it.qty)} عدد</dd></div>
+          <div><dt>زمان تحویل موردنیاز</dt><dd>${DAYS[it.days] || "—"}</dd></div>
+          <div><dt>مهلت تحویل</dt><dd>${date(due)}</dd></div>
+        </dl>
+      </div>
+      <div class="block"><h3>توضیحات مشتری</h3><p class="notes">${it.notes ? esc(it.notes) : '<span class="muted">توضیحی ثبت نشده است.</span>'}</p></div>
+      <div class="block"><h3>پیوست</h3>${it.att ? `
+        <div class="att-card">
+          <span class="thumb${it.att.kind === "nameplate" ? " wide" : ""}">${attSVG(it.att, it.code, it.part)}</span>
+          <span class="nm"><b>${esc(it.att.name)}</b><small>${it.att.kind === "datasheet" ? "دیتاشیت" : "عکس پلاک"} · ${it.att.type} · ${it.att.size} · فایل نمونه</small></span>
+          <button class="btn btn-ghost btn-sm" type="button" id="view-att">مشاهده</button>
+        </div>` : '<p class="muted" style="font-size:13.5px">پیوستی همراه این استعلام نیست.</p>'}
+      </div>
+      <div class="block"><h3 id="st-label">وضعیت درخواست</h3>
+        <div class="st-switch" role="group" aria-labelledby="st-label">
+          ${Object.keys(ST).map((s) => `<button class="st-btn s-${s}" type="button" data-s="${s}" aria-pressed="${it.status === s}">${ST[s]}</button>`).join("")}
+        </div>
+      </div>
+      <div class="block"><h3>تاریخچه</h3>
+        <ol class="timeline">${it.history.slice().reverse().map((h) => `<li>${h.s === "new" ? "استعلام ثبت شد" : "وضعیت به «" + ST[h.s] + "» تغییر کرد"}<small>${when(h.at)}${h.s === "new" ? " · توسط مشتری" : " · کارشناس فروش"}</small></li>`).join("")}</ol>
+      </div>
+      <div class="d-actions">
+        <button class="btn btn-ghost btn-sm" type="button" id="msg">پیش‌نمایش پیام به مشتری</button>
+        <button class="btn btn-ghost btn-sm" type="button" id="crm">پیش‌نمایش ثبت در نرم‌افزار فروش</button>
+      </div>`;
+    const back = $("#back");
+    back.addEventListener("click", () => { ui.sel = null; renderSales(); });
+    const va = $("#view-att");
+    if (va) va.addEventListener("click", () => openModal("پیوست: " + it.att.name, `
+      <span class="preview-tag">فایل نمونه · ساختگی</span>
+      <div class="doc">${attSVG(it.att, it.code, it.part)}</div>
+      <p class="muted" style="font-size:13px">در نسخهٔ واقعی، فایلی که مشتری بارگذاری کرده اینجا باز می‌شود.</p>`));
+    box.querySelectorAll(".st-btn").forEach((b) => b.addEventListener("click", () => setStatus(it, b.dataset.s)));
+    $("#msg").addEventListener("click", () => openModal("پیش‌نمایش پیام به مشتری", `
+      <span class="preview-tag">پیش‌نمایش · در این دمو پیامی ارسال نمی‌شود</span>
+      <div class="sms"><span class="channel">پیامک به رابط ${esc(it.company)}</span>
+        <div class="bubble">${esc(it.company)} گرامی، وضعیت استعلام «${esc(it.part)}» با کد پیگیری <bdi>${esc(it.id)}</bdi>: ${ST[it.status]}.${it.status === "sent" ? " پیشنهاد قیمت و زمان تحویل به ایمیل شما ارسال شد." : ""}<br>آب فام تجارت جهان</div>
+      </div>
+      <p class="muted" style="font-size:13px">در نسخهٔ واقعی، این پیام پس از تأیید کارشناس از طریق سامانهٔ پیامک یا ایمیل ارسال می‌شود.</p>`));
+    $("#crm").addEventListener("click", () => openModal("پیش‌نمایش ثبت در نرم‌افزار فروش", `
+      <span class="preview-tag">پیش‌نمایش · اتصال واقعی برقرار نمی‌شود</span>
+      <dl class="spec">
+        <div><dt>مشتری</dt><dd>${esc(it.company)}</dd></div>
+        <div><dt>کالا</dt><dd>${esc(it.part)}</dd></div>
+        <div><dt>کد فنی</dt><dd class="code">${esc(it.code)}</dd></div>
+        <div><dt>تعداد</dt><dd>${fa(it.qty)} عدد</dd></div>
+        <div><dt>مرحله</dt><dd>${ST[it.status]}</dd></div>
+        <div><dt>مرجع</dt><dd class="code">${esc(it.id)}</dd></div>
+      </dl>
+      <p class="muted" style="font-size:13px">در نسخهٔ واقعی، هر استعلام با همین فیلدها در نرم‌افزار فروش یا حسابداری شرکت ثبت می‌شود.</p>`));
+  }
+  function setStatus(it, s) {
+    if (it.status === s) return;
+    it.status = s;
+    it.history.push({ s, at: Date.now() });
+    save();
+    ui.steps.review = true; renderSteps(); renderCount();
+    renderChips(); renderList(); renderDetail();
+    toast(`وضعیت ${it.id} به «${ST[s]}» تغییر کرد.`);
+  }
+  function renderSales() { renderChips(); renderList(); renderDetail(); }
+
+  /* ---------- modal + toast ---------- */
+  const overlay = $("#overlay");
+  let lastFocus = null;
+  function openModal(title, html) {
+    lastFocus = document.activeElement;
+    $("#m-title").textContent = title; $("#m-body").innerHTML = html;
+    $("#m-body").style.display = "grid"; $("#m-body").style.gap = "12px";
+    overlay.hidden = false; $("#m-close").focus();
+  }
+  function closeModal() { overlay.hidden = true; if (lastFocus) lastFocus.focus(); }
+  $("#m-close").addEventListener("click", closeModal);
+  overlay.addEventListener("click", (e) => { if (e.target === overlay) closeModal(); });
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && !overlay.hidden) closeModal(); });
+  let tt;
+  function toast(msg) {
+    const t = $("#toast"); t.textContent = msg; t.hidden = false;
+    clearTimeout(tt); tt = setTimeout(() => (t.hidden = true), 2600);
+  }
+
+  /* ---------- reset (in-page confirmation) ---------- */
+  function renderReset() {
+    const area = $("#reset-area");
+    if (!ui.resetAsk) {
+      area.innerHTML = `<button class="btn btn-ghost btn-sm reset" id="reset" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>بازنشانی دمو</button>`;
+      $("#reset").addEventListener("click", () => { ui.resetAsk = true; renderReset(); });
+    } else {
+      area.innerHTML = `<span class="reset-confirm">همهٔ تغییرات پاک شود؟
+        <button class="btn btn-danger btn-sm" id="reset-yes" type="button">بله، بازنشانی</button>
+        <button class="btn btn-ghost btn-sm" id="reset-no" type="button">انصراف</button></span>`;
+      $("#reset-yes").addEventListener("click", doReset);
+      $("#reset-no").addEventListener("click", () => { ui.resetAsk = false; renderReset(); });
+      $("#reset-yes").focus();
+    }
+  }
+  function doReset() {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    state = seed(); save();
+    Object.assign(ui, { filter: "all", q: "", sel: null, att: null, sample: 0, lastId: null, resetAsk: false, steps: { fill: false, submit: false, review: false } });
+    $("#q").value = ""; $("#inq").reset(); setAtt(null); clearErrors();
+    $("#success").hidden = true; $("#inq").hidden = false; $("#t-result").innerHTML = ""; $("#t-code").value = "";
+    renderReset(); renderSteps(); renderCount(); renderThumbs(); renderSamples();
+    location.hash = "register"; route();
+    toast("دمو به حالت اولیه برگشت.");
+  }
+
+  renderReset(); renderThumbs(); renderSteps(); renderCount(); renderSamples(); route();
+})();
+</script>
+</body>
+</html>
